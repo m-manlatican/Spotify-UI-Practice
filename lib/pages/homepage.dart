@@ -126,7 +126,10 @@ class Homepage extends StatelessWidget {
               itemCount: listButtonModel.length,
               separatorBuilder: (context, index) => SizedBox(width: 8), 
               itemBuilder: (context, index) {
-                return ButtonCard(buttonModel: listButtonModel[index]);
+                return ButtonCard(
+                  buttonModel: listButtonModel[index],
+                    color: index == 0 ? Color(0xff1FDF64) : Color(0xff333333),
+                );
               } 
             ),
           )

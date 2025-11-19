@@ -1,7 +1,10 @@
+
 class ButtonModel {
   String title;
+  
 
   ButtonModel({
-    required this.title
+    required this.title,
+    
   });
 }
