@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_ui/cards/button_card.dart';
 import 'package:spotify_ui/models/button_model.dart';
+import 'package:spotify_ui/widgets/section_profile_lists.dart';
 
 class Homepage extends StatelessWidget {
   Homepage({super.key});
@@ -16,11 +17,66 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
+      bottomNavigationBar: bottomAppBar(),
       backgroundColor: Colors.black,
-      body: Column(
-        children: [
-
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                SectionProfileLists(),
+                Center(
+                  child: Container(
+                    margin: EdgeInsets.only(top: 460),
+                    width: 330,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      color: Color(0xff30456e),
+                      borderRadius: BorderRadius.circular(6)
+                    ),
+                    child: Row(
+                      children: [
+                        SizedBox(width: 8),
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(4)
+                          ),
+                        ),
+                        SizedBox(width: 12),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('The Art of Spending Money',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white
+                              ),
+                            ),
+                            Text('The Morgan Housel Podcast',
+                              style: TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 45),
+                        Icon(Icons.play_arrow,
+                          color: Colors.white,  
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -76,6 +132,23 @@ class Homepage extends StatelessWidget {
           )
         ],
       )
+    );
+  }
+  BottomAppBar bottomAppBar(){
+    return BottomAppBar(
+      color: Colors.black, 
+      child: Row(
+        children: [
+          Column(
+            children: [
+              Icon(Icons.home_outlined,
+                color: Colors.white,
+                size: 30,
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }
